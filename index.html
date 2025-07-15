@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝗢𝗠𝗞𝗔𝗥  Sharma | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-blue: #00f7ff;
+            --neon-green: #00ff3c;
+            --neon-purple: #9600ff;
+            --dark-bg: #0a101e;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes neonGlow {
+            0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue); }
+            100% { text-shadow: 0 0 10px #fff, 0 0 20px var(--neon-pink), 0 0 30px var(--neon-blue), 0 0 40px var(--neon-purple); }
+        }
+        
+        .neon-btn {
+            position: relative;
+            display: inline-block;
+            padding: 12px 30px;
+            color: white;
+            letter-spacing: 2px;
+            text-decoration: none;
+            overflow: hidden;
+            transition: 0.5s;
+            border: 2px solid var(--neon-pink);
+            border-radius: 0.5rem;
+        }
+        
+        .neon-btn:hover {
+            background: var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink), 0 0 40px var(--neon-pink), 0 0 80px var(--neon-pink);
+            transition-delay: 0.5s;
+        }
+        
+        .neon-spotlight {
+            position: relative;
+        }
+        
+        .neon-spotlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 10px;
+            background: var(--neon-blue);
+            animation: spotlight 3s linear infinite;
+        }
+        
+        @keyframes spotlight {
+            0% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 247, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(-45deg, #160d29, #0a101e, #002642, #0a101e);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+        }
+        
+        .neon-text {
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.3);
+            border-color: var(--neon-blue);
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+            border-radius: 10px;
+            position: relative;
+            transition: width 2s ease;
+        }
+        
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                            rgba(255,255,255,0.1) 0%, 
+                            rgba(255,255,255,0.3) 50%, 
+                            rgba(255,255,255,0.1) 100%);
+            border-radius: 10px;
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .grid-pattern {
+            background: 
+                linear-gradient(rgba(10, 16, 30, 0.9), rgba(10, 16, 30, 0.9)),
+                url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="50" height="50" x="0" y="0" fill="none" stroke="%2300f7ff" stroke-width="0.5"/></svg>');
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+    <!-- Animated Background Elements -->
+    <div class="fixed inset-0 overflow-hidden -z-10">
+        <div class="absolute w-64 h-64 rounded-full bg-neon-pink opacity-10 blur-3xl top-20 -left-20"></div>
+        <div class="absolute w-96 h-96 rounded-full bg-neon-blue opacity-10 blur-3xl bottom-20 -right-20"></div>
+        <div class="absolute w-80 h-80 rounded-full bg-neon-purple opacity-10 blur-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 py-6 px-6 md:px-12 backdrop-blur-md border-b border-opacity-10 border-gray-400">
+        <div class="flex justify-between items-center max-w-7xl mx-auto">
+            <h1 class="text-xl font-bold neon-text">𝗢𝗠𝗞𝗔𝗥  <span class="text-neon-blue">SHARMA</span></h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-neon-pink transition">Home</a>
+                <a href="#about" class="text-white hover:text-neon-blue transition">About</a>
+                <a href="#skills" class="text-white hover:text-neon-green transition">Skills</a>
+                <a href="#projects" class="text-white hover:text-neon-purple transition">Projects</a>
+                <a href="#contact" class="text-white hover:text-neon-blue transition">Contact</a>
+            </div>
+            <button class="md:hidden text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    <span class="text-neon-pink">Hi, I'm</span><br>
+                    <span class="text-5xl md:text-7xl neon-text">𝗢𝗠𝗞𝗔𝗥  Sharma</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl text-gray-300 mb-8">
+                    <span class="text-neon-blue">Creative Developer</span> & <span class="text-neon-green">Design Enthusiast</span>
+                </h2>
+                <p class="text-gray-400 mb-8 max-w-lg">
+                    Crafting digital experiences with a focus on modern aesthetics, innovative solutions, and performance-driven development. Let's build something amazing together!
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="neon-btn">Hire Me</a>
+                    <a href="#projects" class="neon-btn" style="border-color: var(--neon-green); hover:border-color: var(--neon-green);">My Work</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-neon-blue border-opacity-30 floating">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3b997d47-1ea6-4b2d-b2fa-eb636178aaf7.png" alt="omkar   Sharma - Professional Web Developer portrait" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-neon-blue bg-opacity-10 mix-blend-overlay"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <a href="#about" class="animate-bounce block">
+                <i class="fas fa-chevron-down text-2xl text-neon-blue"></i>
+            </a>
+        </div>
+        
+        <div class="absolute top-10 right-10 w-20 h-20 rounded-full border-2 border-neon-pink border-opacity-30 animate-pulse"></div>
+        <div class="absolute bottom-1/4 left-20 w-12 h-12 rounded-full border-2 border-neon-green border-opacity-30 animate-ping" style="animation-duration: 3s;"></div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 grid-pattern">
+        <div class="container mx-auto px-6 md:px-12">
+            <h2 class="text-4xl font-bold mb-20 text-center neon-spotlight relative inline-block px-8 py-2">
+                <span class="relative z-10">About <span class="text-neon-blue">Me</span></span>
+            </h2>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-12 md:mb-0 flex justify-center">
+                    <div class="relative w-64 h-64 rounded-lg overflow-hidden border-2 border-neon-purple border-opacity-50 floating" style="animation-delay: 0.2s;">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4de2fac2-65e4-4b69-9b41-b6b210991a5c.png" alt="omkar   Sharma at work developing modern web applications" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 md:pl-16">
+                    <div class="mb-6">
+                        <p class="text-gray-300 mb-4">
+                            I'm a passionate developer with over 5 years of experience creating cutting-edge digital solutions. My journey began with a curiosity about how things work, which evolved into a love for building innovative applications.
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            With expertise in both frontend and backend development, I specialize in crafting seamless user experiences with attention to detail, performance, and accessibility.
+                        </p>
+                        <p class="text-gray-300">
+                            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or attending tech meetups to stay at the forefront of industry trends.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+                        <div class="p-4 border border-opacity-20 border-neon-blue rounded-lg transition hover:bg-neon-blue hover:bg-opacity-10 hover:border-opacity-50">
+                            <div class="text-neon-blue text-xl mb-2"><i class="fas fa-code"></i></div>
+                            <h3 class="font-semibold">Clean Code</h3>
+                        </div>
+                        <div class="p-4 border border-opacity-20 border-neon-pink rounded-lg transition hover:bg-neon-pink hover:bg-opacity-10 hover:border-opacity-50">
+                            <div class="text-neon-pink text-xl mb-2"><i class="fas fa-mobile-alt"></i></div>
+                            <h3 class="font-semibold">Responsive</h3>
+                        </div>
+                        <div class="p-4 border border-opacity-20 border-neon-green rounded-lg transition hover:bg-neon-green hover:bg-opacity-10 hover:border-opacity-50">
+                            <div class="text-neon-green text-xl mb-2"><i class="fas fa-tachometer-alt"></i></div>
+                            <h3 class="font-semibold">Fast</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-opacity-50 bg-black relative overflow-hidden">
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black"></div>
+            <div class="absolute top-0 left-0 w-full h-full opacity-20" style="background: url('data:image/svg+xml;utf8,<svg viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"2\" height=\"2\" x=\"20\" y=\"20\" fill=\"%2300f7ff\" /><rect width=\"2\" height=\"2\" x=\"40\" y=\"20\" fill=\"%2300f7ff\" /><rect width=\"2\" height=\"2\" x=\"60\" y=\"20\" fill=\"%2300f7ff\" /><rect width=\"2\" height=\"2\" x=\"80\" y=\"20\" fill=\"%2300f7ff\" /><rect width=\"2\" height=\"2\" x=\"20\" y=\"40\" fill=\"%2300f7ff\" /><rect width=\"2\" height=\"2\" x=\"20\" y=\"60\" fill=\"%2300f7ff\" /><rect width=\"2\" height=\"2\" x=\"20\" y=\"80\" fill=\"%2300f7ff\" /><rect width=\"2\" height=\"2\" x=\"80\" y=\"40\" fill=\"%2300f7ff\" /><rect width=\"2\" height=\"2\" x=\"80\" y=\"60\" fill=\"%2300f7ff\" /><rect width=\"2\" height=\"2\" x=\"80\" y=\"80\" fill=\"%2300f7ff\" /></svg>')"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 md:px-12">
+            <h2 class="text-4xl font-bold mb-20 text-center neon-spotlight relative inline-block px-8 py-2">
+                <span class="relative z-10">My <span class="text-neon-green">Skills</span></span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">JavaScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">React</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Node.js</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">UI/UX Design</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Python</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <h3 class="text-xl font-semibold text-neon-blue mb-6">Technologies I Work With</h3>
+                <div class="flex flex-wrap gap-4">
+                    <div class="tech-icon" title="HTML5"><i class="fab fa-html5 text-2xl text-orange-500"></i></div>
+                    <div class="tech-icon" title="CSS3"><i class="fab fa-css3-alt text-2xl text-blue-500"></i></div>
+                    <div class="tech-icon" title="JavaScript"><i class="fab fa-js text-2xl text-yellow-400"></i></div>
+                    <div class="tech-icon" title="React"><i class="fab fa-react text-2xl text-blue-400"></i></div>
+                    <div class="tech-icon" title="Node.js"><i class="fab fa-node-js text-2xl text-green-500"></i></div>
+                    <div class="tech-icon" title="Git"><i class="fab fa-git-alt text-2xl text-orange-600"></i></div>
+                    <div class="tech-icon" title="Python"><i class="fab fa-python text-2xl text-blue-600"></i></div>
+                    <div class="tech-icon" title="Sass"><i class="fab fa-sass text-2xl text-pink-500"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative">
+        <div class="absolute inset-0 -z-10 opacity-10">
+            <div class="absolute inset-0 bg-gradient-to-b from-neon-purple via-transparent to-neon-blue"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 md:px-12">
+            <h2 class="text-4xl font-bold mb-20 text-center neon-spotlight relative inline-block px-8 py-2">
+                <span class="relative z-10">My <span class="text-neon-purple">Projects</span></span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-black bg-opacity-50 p-6 rounded-xl">
+                    <div class="mb-4 h-48 overflow-hidden rounded-lg">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b75c1e71-a0d1-4f3d-a544-d30f71dc3fc2.png" alt="E-commerce dashboard project screenshot showing analytics" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-neon-blue">E-Commerce Dashboard</h3>
+                    <p class="text-gray-400 mb-4">A comprehensive admin dashboard for e-commerce businesses with real-time analytics.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 bg-neon-green bg-opacity-10 text-neon-green rounded">React</span>
+                        <span class="text-xs px-2 py-1 bg-neon-blue bg-opacity-10 text-neon-blue rounded">Node.js</span>
+                        <span class="text-xs px-2 py-1 bg-neon-pink bg-opacity-10 text-neon-pink rounded">MongoDB</span>
+                    </div>
+                    <a href="#" class="text-neon-pink hover:underline flex items-center">
+                        View Project <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="project-card bg-black bg-opacity-50 p-6 rounded-xl">
+                    <div class="mb-4 h-48 overflow-hidden rounded-lg">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c9ab91c8-35e2-473f-9283-d1164e383a48.png" alt="Fitness tracking mobile app interface with workout data" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-neon-green">Fitness Tracker</h3>
+                    <p class="text-gray-400 mb-4">Mobile application that tracks workouts and provides personalized fitness plans.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 bg-neon-green bg-opacity-10 text-neon-green rounded">React Native</span>
+                        <span class="text-xs px-2 py-1 bg-neon-blue bg-opacity-10 text-neon-blue rounded">Firebase</span>
+                        <span class="text-xs px-2 py-1 bg-neon-purple bg-opacity-10 text-neon-purple rounded">Redux</span>
+                    </div>
+                    <a href="#" class="text-neon-pink hover:underline flex items-center">
+                        View Project <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="project-card bg-black bg-opacity-50 p-6 rounded-xl">
+                    <div class="mb-4 h-48 overflow-hidden rounded-lg">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2753b247-e6e8-4acd-ae52-0e03989ba5c1.png" alt="Online code editor project with syntax highlighting" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-neon-pink">Online Code Editor</h3>
+                    <p class="text-gray-400 mb-4">Collaborative code editor with real-time updates and multiple language support.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 bg-neon-green bg-opacity-10 text-neon-green rounded">TypeScript</span>
+                        <span class="text-xs px-2 py-1 bg-neon-blue bg-opacity-10 text-neon-blue rounded">Socket.io</span>
+                        <span class="text-xs px-2 py-1 bg-neon-purple bg-opacity-10 text-neon-purple rounded">Express</span>
+                    </div>
+                    <a href="#" class="text-neon-pink hover:underline flex items-center">
+                        View Project <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="neon-btn px-8 py-3 inline-block text-lg" style="border-color: var(--neon-green);">
+                    <i class="fas fa-folder-open mr-2"></i> View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 grid-pattern">
+        <div class="container mx-auto px-6 md:px-12">
+            <h2 class="text-4xl font-bold mb-20 text-center neon-spotlight relative inline-block px-8 py-2">
+                <span class="relative z-10">Get In <span class="text-neon-pink">Touch</span></span>
+            </h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold mb-6 text-neon-blue">Let's Talk About Your Project</h3>
+                    <p class="text-gray-300 mb-8">
+                        Have a project in mind or want to discuss potential opportunities? Feel free to reach out using the contact form or directly through my social media profiles. I'm always open to exciting new collaborations!
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-neon-pink bg-opacity-10 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-neon-pink"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Email Me At</p>
+                                <p>Hosthunter201@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-neon-blue bg-opacity-10 flex items-center justify-center mr-4">
+                                <i class="fas fa-phone-alt text-neon-blue"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm">Call Me At</p>
+                                <p>+994401789220</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4 text-neon-green">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/Hosthunter-oceanhenter" class="w-10 h-10 rounded-full bg-black bg-opacity-50 flex items-center justify-center hover:bg-neon-blue hover:text-black transition">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://t.me/oceanhenter" class="w-10 h-10 rounded-full bg-black bg-opacity-50 flex items-center justify-center hover:bg-blue-500 hover:text-black transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://t.me/oceanhenter" class="w-10 h-10 rounded-full bg-black bg-opacity-50 flex items-center justify-center hover:bg-blue-400 hover:text-black transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/mr_omkar_sharma_2.0_?igsh=ZTdkODE5Y3dzam4x" class="w-10 h-10 rounded-full bg-black bg-opacity-50 flex items-center justify-center hover:bg-pink-500 hover:text-black transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <form class="bg-black bg-opacity-50 p-8 rounded-xl">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-300 mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full bg-gray-900 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-neon-blue transition">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-300 mb-2">Your Email</label>
+                            <input type="email" id="email" class="w-full bg-gray-900 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-neon-blue transition">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-300 mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full bg-gray-900 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-neon-blue transition">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-300 mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full bg-gray-900 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-neon-blue transition"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="neon-btn w-full py-4">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-xl font-bold">𝗢𝗠𝗞𝗔𝗥  <span class="text-neon-blue">SHARMA</span></h2>
+                    <p class="text-gray-500 text-sm">© 2023 All Rights Reserved</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-gray-400 hover:text-neon-blue transition">Home</a>
+                    <a href="#about" class="text-gray-400 hover:text-neon-blue transition">About</a>
+                    <a href="#skills" class="text-gray-400 hover:text-neon-blue transition">Skills</a>
+                    <a href="#projects" class="text-gray-400 hover:text-neon-blue transition">Projects</a>
+                    <a href="#contact" class="text-gray-400 hover:text-neon-blue transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('.project-card, .tech-icon, .skill-bar, form').forEach((el) => {
+            observer.observe(el);
+        });
+        
+        // Typewriter effect for skills
+        const words = ['Developer', 'Designer', 'Problem Solver', 'Tech Enthusiast'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.querySelector('.typewriter');
+        
+        function typeWriter() {
+            const currentWord = words[wordIndex];
+            const currentChar = currentWord.substring(0, charIndex);
+            
+            if (typewriterElement) {
+                typewriterElement.textContent = currentChar;
+            }
+            
+            if (!isDeleting && charIndex < currentWord.length) {
+                charIndex++;
+                setTimeout(typeWriter, 100);
+            } else if (isDeleting && charIndex > 0) {
+                charIndex--;
+                setTimeout(typeWriter, 50);
+            } else {
+                isDeleting = !isDeleting;
+                if (!isDeleting) {
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
+                setTimeout(typeWriter, 1000);
+            }
+        }
+        
+        // Start the typeWriter effect after page loads
+        window.addEventListener('DOMContentLoaded', typeWriter);
+    </script>
+</body>
+</html>
